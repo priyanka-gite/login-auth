@@ -1,66 +1,80 @@
 import React from 'react';
+import "./LoginPage.css"
+import {useRef,useState,useEffect} from "react";
 import {
     MDBBtn,
     MDBContainer,
     MDBRow,
     MDBCol,
-    MDBCard,
-    MDBCardBody,
-    MDBInput,
-    MDBIcon
+    MDBInput
 }
     from 'mdb-react-ui-kit';
 
 const LoginPage = () => {
+    const userRef = useRef();
+    const errRef = useRef();
+
+    const[email,setEmail] = useState("");
+    const[pwd,setPwd] = useState("");
+    const[errMsg,setErrMsg] = useState("");
+    const[sucess,setSuccess] = useState(false);
+
+
     return (
-        <div>
-            <MDBContainer fluid>
+        <MDBContainer className="my-5 gradient-form">
 
-                <MDBRow className='d-flex justify-content-center align-items-center h-100'>
-                    <MDBCol col='12'>
+            <MDBRow>
 
-                        <MDBCard className='bg-dark text-white my-5 mx-auto' style={{borderRadius: '1rem', maxWidth: '400px'}}>
-                            <MDBCardBody className='p-5 d-flex flex-column align-items-center mx-auto w-100'>
+                <MDBCol col='6' className="mb-5">
+                    <div className="d-flex flex-column ms-5">
 
-                                <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
-                                <p className="text-white-50 mb-5">Please enter your login and password!</p>
+                        <div className="text-center">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                                 style={{width: '185px'}} alt="logo" />
+                            <h4 className="mt-1 mb-5 pb-1">LOGIN </h4>
+                        </div>
 
-                                <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Email address' id='formControlLg' type='email' size="lg"/>
-                                <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Password' id='formControlLg' type='password' size="lg"/>
+                        <p>Please login to your account</p>
 
-                                <p className="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
-                                <MDBBtn outline className='mx-2 px-5' color='white' size='lg'>
-                                    Login
-                                </MDBBtn>
 
-                                <div className='d-flex flex-row mt-3 mb-5'>
-                                    <MDBBtn tag='a' color='none' className='m-3' style={{ color: 'white' }}>
-                                        <MDBIcon fab icon='facebook-f' size="lg"/>
-                                    </MDBBtn>
+                        <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email'/>
+                        <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password'/>
 
-                                    <MDBBtn tag='a' color='none' className='m-3' style={{ color: 'white' }}>
-                                        <MDBIcon fab icon='twitter' size="lg"/>
-                                    </MDBBtn>
 
-                                    <MDBBtn tag='a' color='none' className='m-3' style={{ color: 'white' }}>
-                                        <MDBIcon fab icon='google' size="lg"/>
-                                    </MDBBtn>
-                                </div>
+                        <div className="text-center pt-1 mb-5 pb-1">
+                            <MDBBtn className="mb-4 w-100 gradient-custom-2">Sign in</MDBBtn>
+                            <a className="text-muted" href="#!">Forgot password?</a>
+                        </div>
 
-                                <div>
-                                    <p className="mb-0">Don't have an account? <a href="#!" class="text-white-50 fw-bold">Sign Up</a></p>
+                        <div className="d-flex flex-row align-items-center justify-content-center pb-4 mb-4">
+                            <p className="mb-0">Don't have an account?</p>
+                            <MDBBtn outline className='mx-2' color='danger'>
+                                Danger
+                            </MDBBtn>
+                        </div>
 
-                                </div>
-                            </MDBCardBody>
-                        </MDBCard>
+                    </div>
 
-                    </MDBCol>
-                </MDBRow>
+                </MDBCol>
 
-            </MDBContainer>
-            );
-            }
-        </div>
+                <MDBCol col='6' className="mb-5">
+                    <div className="d-flex flex-column  justify-content-center gradient-custom-2 h-100 mb-4">
+
+                        <div className="text-white px-3 py-4 p-md-5 mx-md-4">
+                            <h4 className="mb-4">We are more than just a company</h4>
+                            <p className="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </MDBCol>
+
+            </MDBRow>
+
+        </MDBContainer>
     );
 };
 
